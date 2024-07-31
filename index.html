@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .score {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        background-color: lightgray;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+    }
+    .score.active {
+        background-color:hsl(25, 97%, 53%);
+    }
+</style>
+<body>
+    <section class="card">
+        <div>
+            <img src="./images/icon-star.svg" alt="" class="star">
+        </div>
+        <h1 class="heading">
+            How did we do?
+        </h1>
+        <p class="text"> Please let us know how we did with your support request. All feedback is appreciated 
+            to help us improve our offering!</p>
+            <form action="javascript:void(0);" onsubmit="submitForm()">
+                <div class="rating">
+                    <span class="score" onclick="setRating(1)">1</span> 
+                    <span class="score" onclick="setRating(2)">2</span> 
+                    <span class="score" onclick="setRating(3)">3</span> 
+                    <span class="score" onclick="setRating(4)">4</span> 
+                    <span class="score" onclick="setRating(5)">5</span>
+                </div>  
+                <input type="submit" value="SUBMIT"></button>
+                </form>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

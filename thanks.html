@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+</head>
+<body>
+    <section>
+        <div class="card">
+            <img src="./images/illustration-thank-you.svg" alt="" width="200px" style="margin-left: 60px;">
+            <p class="scorestate orange" style="text-align: center;">You selected 
+            <span class="scorestate" id="thankRating">f</span> out of 5</p>
+            <h1 style="text-align: center; margin-top: -8px;">Thank you!</h1>
+            <p class="appreciate" style="text-align: center; margin-top: -8px;">We appreciate you taking the time to give a rating. If you ever need more support,  don’t hesitate to get in touch!</p>
+        </div>
+    </section>
+    <script src="script.js"></script>
+          <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Parse the URL to get the rating parameter value
+      const params = new URLSearchParams(window.location.search);
+      const rating = params.get("rating");
+
+      // Grab the #thankRating span
+      let thankRating = document.getElementById("thankRating");
+
+      // Set its innerHTML to the value you want
+      if (rating !== null) {
+        thankRating.innerHTML = rating;
+      }
+    });
+    </script>
+</body>
+</html>
