@@ -8,6 +8,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You</title>
+    <style>
+      /* Optional styling for the Done button */
+      .done-button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color:hsl(25, 97%, 53%);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
 </head>
 <body>
     <section>
@@ -17,23 +30,41 @@
             <span class="scorestate" id="thankRating">f</span> out of 5</p>
             <h1 style="text-align: center; margin-top: -8px;">Thank you!</h1>
             <p class="appreciate" style="text-align: center; margin-top: -8px;">We appreciate you taking the time to give a rating. If you ever need more support,  don’t hesitate to get in touch!</p>
+            <button class="done-button" onclick="goBack()">Done</button>
         </div>
     </section>
     <script src="script.js"></script>
           <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Parse the URL to get the rating parameter value
-      const params = new URLSearchParams(window.location.search);
-      const rating = params.get("rating");
+// Listen for the event when the HTML document is fully loaded and parsed
+document.addEventListener("DOMContentLoaded", function() {
+  // Create a URLSearchParams object from the query string in the current page's URL
+  // This allows you to work with query parameters in an easy way
+  const params = new URLSearchParams(window.location.search);
+  
+  // Get the value of the 'rating' parameter from the URL
+  // For example, if the URL is 'thanks.html?rating=5', this will get '5'
+  const rating = params.get("rating");
 
-      // Grab the #thankRating span
-      let thankRating = document.getElementById("thankRating");
+  // Find the HTML element with the ID 'thankRating'
+  // This is where we will display the rating value
+  let thankRating = document.getElementById("thankRating");
 
-      // Set its innerHTML to the value you want
-      if (rating !== null) {
-        thankRating.innerHTML = rating;
-      }
-    });
+  // Check if the 'rating' parameter is not null
+  // If it has a value (i.e., a rating was passed in the URL), then update the content of the 'thankRating' element
+  if (rating !== null) {
+    // Set the inner HTML of the 'thankRating' element to the rating value
+    // This displays the rating on the thank you page
+    thankRating.innerHTML = rating;
+  }
+});
+
+// Define a function named 'goBack'
+function goBack() {
+  // This function changes the current page to 'index.html'
+  // It redirects the user back to the rating page when called
+  window.location.href = "index.html";
+}
+
     </script>
 </body>
 </html>
